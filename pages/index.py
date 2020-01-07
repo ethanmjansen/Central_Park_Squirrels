@@ -16,17 +16,15 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Your Value Proposition
+            ## Can you trust that squirrel in Central Park? 
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
+            Squirrels of Central Park is an app that lets you safely gauge if a squirrel will run away when approached by a person. One should never endanger themselves or squirrels while using this app. 
 
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
-
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
+            This app is not to be used lightly, given the power of knowing if a squirrel will run or not is practically a super power and with great power, comes great responsibility. 
 
             """
         ),
-        dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button('See if that is a good squirrel', color='primary'), href='/predictions')
     ],
     md=4,
 )

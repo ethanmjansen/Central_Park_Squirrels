@@ -11,7 +11,7 @@ from pages import index, predictions, insights, process
 
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
-    brand='YOUR APP NAME',
+    brand='Squirrels of Central Park',
     brand_href='/', 
     children=[
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
@@ -19,9 +19,9 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
     ],
     sticky='top',
-    color='light', 
-    light=True, 
-    dark=False
+    color='primary', 
+    light=False, 
+    dark=True
 )
 
 # Footer docs:
@@ -35,11 +35,11 @@ footer = dbc.Container(
         dbc.Col(
             html.P(
                 [
-                    html.Span('Your Name', className='mr-2'), 
-                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<you>@<provider>.com'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/<you>/<repo>'), 
-                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/<you>/'), 
-                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
+                    html.Span('Ethan Jansen', className='mr-2'), 
+                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:ethanm.jansen@gmail.com'), 
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/ethanmjansen/Central_Park_Squirrels'), 
+                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/ethan-jansen-957738190/'), 
+                    #html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
                 ], 
                 className='lead'
             )
