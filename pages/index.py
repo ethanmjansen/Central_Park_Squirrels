@@ -26,14 +26,14 @@ column1 = dbc.Col(
         ),
         dcc.Link(dbc.Button('See if that is a good squirrel', color='primary'), href='/predictions')
     ],
-    md=4,
+    md=6,
 )
 
 
 
 column2 = dbc.Col(
     [
-        html.Img(src='assets/squirrel.png', className='img-fluid')
+        html.Img(src='assets/squirrel.png', className='img-fluid', style = {'height': '350px'})
     ]
 )
 

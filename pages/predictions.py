@@ -19,27 +19,8 @@ pipeline = load('assets/pipeline (4).joblib')
 column1 = dbc.Col(
     [
        
-        #dcc.Markdown('## Predictions', className='mb-5'), 
-        dcc.Markdown('#### Longitude'), 
-        dcc.Slider(
-            id='Longitude', 
-            min=-73.981159, 
-            max=-73.949722, 
-            step=0.0005, 
-            value=-73.967238, 
-            marks={n: str(n) for n in arange(-73.981159,-73.949722,.0005)}, 
-            className='mb-4', 
-        ), 
-        dcc.Markdown('#### Latitude'),
-        dcc.Slider(
-            id='Latitude', 
-            min=40.764911, 
-            max=40.800119, 
-            step=0.0005, 
-            value=40.780775, 
-            #marks={n: str(n) for n in range(1960,2060,20)}, 
-            className='mb-4', 
-        ),
+         
+
         dcc.Markdown('#### Primary Fur Color'), 
         dcc.Dropdown(
             id='Primary_Fur_Color', 
@@ -70,14 +51,6 @@ column1 = dbc.Col(
             className='mb-4', 
         ), 
 
-        
-    ],
-    md=4,
-)
-
-column2 = dbc.Col(
-    [
-        #dcc.Markdown('## .', className='mb-5'),
         dcc.Markdown('#### Time of Day'), 
         dcc.Dropdown(
             id='Shift', 
@@ -100,7 +73,7 @@ column2 = dbc.Col(
             className='mb-4', 
         ),
 
-         dcc.Markdown('#### Eating'), 
+             dcc.Markdown('#### Eating'), 
         dcc.Dropdown(
             id='Eating', 
             options = [
@@ -110,6 +83,44 @@ column2 = dbc.Col(
             value = 'True', 
             className='mb-4', 
         ),
+
+ 
+
+        
+    ],
+    md=4,
+)
+
+column2 = dbc.Col(
+    [
+        #dcc.Markdown('## .', className='mb-5'),
+        
+
+   
+
+        dcc.Markdown('#### Longitude (In Central Park)'), 
+        dcc.Slider(
+            id='Longitude', 
+            min=-73.981159, 
+            max=-73.949722, 
+            step=0.0005, 
+            value=-73.967238, 
+            #marks={i: 'Label {}'.format(i) for i in range(10)}, 
+             
+        ), 
+        html.Div(id='slider-output-container1'),
+
+        dcc.Markdown('#### Latitude (In Central Park)'),
+        dcc.Slider(
+            id='Latitude', 
+            min=40.764911, 
+            max=40.800119, 
+            step=0.0005, 
+            value=40.780775, 
+            #marks={n: str(n) for n in range(1960,2060,20)}, 
+         
+        ),
+        html.Div(id='slider-output-container2'),
      
      
     ]
@@ -118,9 +129,9 @@ column2 = dbc.Col(
 column3 = dbc.Col(
     [
 
-        html.H2('Squirrel Behavior', className='mb-5'), 
+        html.H2('Squirrel Behavior', className='mb-3'), 
+        html.Div(id='prediction-content', className='lead'), 
         html.Div(id='prediction-image', className='lead'),
-        html.Div(id='prediction-content', className='lead') 
 
     #daq.Gauge(
     #d='my-daq-gauge',
@@ -151,7 +162,10 @@ def predict(Shift, Foraging, X, Y, Primary_Fur_Color, Eating, Highlight_Fur_Colo
         data=[[Shift, Foraging, X, Y, Primary_Fur_Color, Eating, Highlight_Fur_Color]]
     )
     y_pred = pipeline.predict(df)[0]
-    return f'{y_pred}'
+    if y_pred == True:
+        return f'Squirrel Approaches'
+    else:
+        return f'Squirrel Runs Away'
 
 @app.callback(
     Output('prediction-image', 'children'),
@@ -170,3 +184,14 @@ def predict(Shift, Foraging, X, Y, Primary_Fur_Color, Eating, Highlight_Fur_Colo
     else:
         return html.Img(src='assets/squirrel_runs.png',className='img-fluid', style = {'height': '300px'})
 
+@app.callback(
+    dash.dependencies.Output('slider-output-container1', 'children'),
+    [dash.dependencies.Input('Longitude', 'value')])
+def update_output(value):
+    return 'You have entered "{}"'.format(value)
+
+@app.callback(
+    dash.dependencies.Output('slider-output-container2', 'children'),
+    [dash.dependencies.Input('Latitude', 'value')])
+def update_output(value):
+    return 'You have entered "{}"'.format(value)

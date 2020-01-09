@@ -21,6 +21,15 @@ column1 = dbc.Col(
             """
         ),
 
+        dcc.Markdown(
+            """
+            
+            
+
+
+            """
+                ),
+
     ],
 )
 
