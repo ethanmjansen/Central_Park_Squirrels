@@ -40,7 +40,7 @@ column1 = dbc.Col(
             """
         ), 
 
-        <img src="assets/Permutations.PNG" class="img-rounded" style="height: 300px;"/>,
+        html.Img(src='assets/Permutations.PNG', className='img-fluid', style = {'height': '400px'}),
 
         dcc.Markdown(
 
