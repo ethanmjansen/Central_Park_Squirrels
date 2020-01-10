@@ -70,8 +70,8 @@ column1 = dbc.Col(
             '''
 
         ), 
-        html.Img(src='assets/pdp_longitude.png', className='img-fluid', style = {'height': '400px'}),
-        html.Img(src='assets/pdp_latitude.png', className='img-fluid', style = {'height': '400px'}), 
+        html.Img(src='assets/pdp_longitude.PNG', className='img-fluid', style = {'height': '400px'}),
+        html.Img(src='assets/pdp_latitude.PNG', className='img-fluid', style = {'height': '400px'}), 
 
         dcc.Markdown(
 
@@ -90,7 +90,7 @@ column1 = dbc.Col(
                 ),
 
         html.Img(src='assets/central_park.png', className='img-fluid', style = {'height': '400px'}),
-        html.Img(src='assets/double_pdp.png', className='img-fluid', style = {'height': '400px'}),
+        html.Img(src='assets/double_pdp.PNG', className='img-fluid', style = {'height': '400px'}),
 
         dcc.Markdown(
 
@@ -126,7 +126,7 @@ column1 = dbc.Col(
 
         ), 
 
-        html.Img(src='assets/confusion_matrix.png', className='img-fluid', style = {'height': '400px'}), 
+        html.Img(src='assets/confusion_matrix.PNG', className='img-fluid', style = {'height': '400px'}), 
 
  
 
