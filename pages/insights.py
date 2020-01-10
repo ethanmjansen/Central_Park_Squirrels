@@ -47,7 +47,7 @@ column1 = dbc.Col(
             '''
             It can be seen that many of the different features didn't hold very much weight in how they effected the model. I opted 
             to keep only the "fun" ones. Those seven features are:  
-            'Shift', 'Foraging', 'X', 'Y', 'Primary_Fur_Color', 'Eating', 'Highlight_Fur_Color'  
+            'Shift', 'Foraging', 'Longitude', 'Latitude', 'Primary_Fur_Color', 'Eating', 'Highlight_Fur_Color'  
             Most of the features are pretty self explanatory except for Shift, which I replaced on the app inputs with "Time of Day" 
             The new model was faster and actually scored better on the validation test set with 67.4 percent. 
             '''
