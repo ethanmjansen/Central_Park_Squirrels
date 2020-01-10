@@ -12,7 +12,7 @@ from numpy import arange
 from app import app
 print('Pipeline loaded!')
 #Load Pipeline
-pipeline = load('assets/pipeline (4).joblib')
+pipeline = load('assets/pipeline (5).joblib')
 
 # 2 column layout. 1st column width = 4/12
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout

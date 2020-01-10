@@ -42,7 +42,7 @@ column1 = dbc.Col(
             #### Defining the Target  
              
              
-            The dataset I found didn't have a target column easily accessible, in fact, these are the columns that I was given:  
+            The dataset I found didn't have a target column easily accessible. These are the columns that I was given:  
             
             
             'Longitude', 'Latitude', 'Unique_Squirrel_ID', 'Hectare', 'Shift',
@@ -57,16 +57,28 @@ column1 = dbc.Col(
 
             Not exactly user friendly when it comes to selecting a target. I ended up dropping the instances where a squirrel 
             was true for all of the following columns: Approaches, Indifferent, and Runs from. After that I combined 
-            Approaches and Runs from into a Target column and dropped the three previous columns so that a squirrel either 
+            Approaches and Runs from, into a Target column and dropped the three previous columns so that a squirrel either 
             approached or ran from someone in a single column.  
 
 
             #### Metric and Baseline  
              
              
-            After defining the target it became a simple matter of choosing a Metric and Baseline to go off of. To start I realized that 
+            After defining the target it became a simple matter of choosing a metric and baseline to go off of. To start, I realized that 
             squirrels were friendly in 1,581 observations and ran away in 1,410. This would mean that the baseline estimate someone could 
-            guess would be that a squirrel would be friendly 52.9 percent of the time. The remaining 47.1 percent would run away.                 
+            guess would be that a squirrel would be friendly 52.9 percent of the time and the remaining 47.1 percent it would run away. 
+            That just leaves choosing a metric to score my model on. I picked accuracy as my metric because if I could beat the baseline 
+            accuracy, I would be able to see how useful my model was.   
+
+
+            #### Leakage and Usefulness  
+             
+             
+            There were no features that gave leakage into my target column in fact when I dropped the inital 3 columns: Approaches, 
+            Indifferent, and Runs from. I was able to eliminate all leakage and so my model is watertight when its predictions 
+            are made. The usefulness of this model is in the eye of the beholder. Perhaps a scientist would like to figure out why 
+            a certain color of squirrel is more prone to running or why squirrels in northern centrall park respond differently 
+            than the ones in the southern part. My intention of making the model was to make it fun for park goers.                  
               
               
 
@@ -77,7 +89,7 @@ column1 = dbc.Col(
                 ),
 
     ],
-    md=9,
+    #md=9,
 )
 
 layout = dbc.Row([column1])
