@@ -33,7 +33,7 @@ column1 = dbc.Col(
 
 column2 = dbc.Col(
     [
-        html.Img(src='assets/squirrel.png', className='img-fluid', style = {'height': '350px'})
+        html.Img(src='assets/Squirrel.png', className='img-fluid', style = {'height': '350px'})
     ]
 )
 
